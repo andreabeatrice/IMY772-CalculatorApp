@@ -3,7 +3,6 @@ import chaiHttp from "chai-http";
 const should = chai.should();
 import server from "../src/app.js";
 import chaiDom from "chai-dom";
-import $ from "jquery";
 import request from "request";
 
 chai.use(chaiHttp);
