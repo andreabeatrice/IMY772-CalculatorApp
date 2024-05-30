@@ -27,17 +27,20 @@ describe("The contents of the page", function() {
   describe("Input 1", function() {
 
     it("should exist", function(done) {
-      request("http://localhost:4000", function(error, response, body) {
-        body.should.have.descendants("input");
+      request("http://localhost:4000", function(error, response) {
+        response.body.should.include("<input id='input1'");
         done();
       });
 
-      it("should have an id", function(done) {
-        request("http://localhost:4000", function(error, response, body) {
-          $('input').should.have.id('#input1');
+      it("should have a max length of 3", function(done) {
+        request("http://localhost:4000", function(error, response) {
+          response.body.should.include("<input id='input1' maxlength='3'");
           done();
         });
-
       });
+
+
+
+
     });
   });
