@@ -141,3 +141,5 @@ describe("The contents of the page", function () {
     });
   });
 });
+
+describe("The actions of the page", function () {});
