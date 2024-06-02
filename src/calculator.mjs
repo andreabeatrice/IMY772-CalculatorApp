@@ -3,7 +3,7 @@ class Calculator {
 
   checkHexadecimal(hex) {
     var re = new RegExp("^[0-9A-F]{1,3}$");
-    return re.test(hex);
+    return re.test(hex.toUpperCase());
   }
 
   convertToDecimal(hex) {
@@ -30,7 +30,7 @@ class Calculator {
   }
 
   convertToHex(dec) {
-    return parseInt(dec, 10).toString(16);
+    return parseInt(dec, 10).toString(16).toUpperCase();
   }
 
   go(hex1, hex2, op) {
@@ -45,7 +45,7 @@ class Calculator {
       var hexResult = this.convertToHex(decResult);
       if (hexResult.length > 6) {
         return null;
-      } else return hexResult;
+      } else return hexResult.toUpperCase();
     }
   }
 }

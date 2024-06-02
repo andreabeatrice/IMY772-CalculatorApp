@@ -141,12 +141,12 @@ describe("Testing the go() function", () => {
 
   test("Regular subtraction", () => {
     let c = new Calculator();
-    expect(c.go("22", "C", "sub")).toBe("26");
+    expect(c.go("22", "C", "sub")).toBe("16");
   });
 
   test("Regular multiplication", () => {
     let c = new Calculator();
-    expect(c.go("AAA", "2", "mul")).toBe("3552");
+    expect(c.go("AAA", "2", "mul")).toBe("1554");
   });
 
   test("Regular division", () => {
@@ -171,6 +171,6 @@ describe("Testing the go() function", () => {
 
   test("Result > 6 digits", () => {
     let c = new Calculator();
-    expect(c.go("FFF", "FFF", "mul")).toBeNull();
+    expect(c.go("FFF", "FFF", "mul")).toBe("FFE001");
   });
 });
