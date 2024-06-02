@@ -1,13 +1,5 @@
 const Calculator = require("../src/calculator.mjs").Calculator;
 
-// describe('Testing the Cube Functions', function() {
-// it('1. The side length of the Cube', function(done) {
-// let c1 = new Cube(2);
-// expect(c1.getSideLength()).to.equal(2);
-// done();
-// });
-//
-
 describe("Testing the checkHexadecimal() function. true = hexadecimal, false != hexidecimal", () => {
   test("Hex with 3 digits between 0-9", () => {
     let c = new Calculator();
