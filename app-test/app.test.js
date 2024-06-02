@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+import $ from "jquery";
 
 test("use jsdom in this test file", () => {
   const element = document.createElement("div");
@@ -9,9 +10,7 @@ test("use jsdom in this test file", () => {
 
 describe("Input #1", () => {
   test("Page has input #1", () => {
-    return expect(
-      Promise.resolve(document.getElementById("input1")),
-    ).resolves.not.toBeNull();
+    return expect($("#input1")).not.toBeNull();
   });
 
   test("Input #1 has a maxlength=3", () => {
