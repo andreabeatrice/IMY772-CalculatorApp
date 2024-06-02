@@ -1,12 +1,9 @@
 class Calculator {
-  constructor() { }
-
-  constructor(hex1, hex2, op) { }
+  constructor() {}
 
   checkHexadecimal(hex) {
     var re = new RegExp("^[0-9A-F]{1,3}$");
     return re.test(hex);
-
   }
 
   convertToDecimal(hex) {
@@ -36,7 +33,21 @@ class Calculator {
     return parseInt(dec, 10).toString(16);
   }
 
-  go(hex1, hex2, op) { }
+  go(hex1, hex2, op) {
+    var d1 = this.convertToDecimal(hex1);
+    var d2 = this.convertToDecimal(hex2);
+
+    var decResult = this.arithmetic(d1, d2, op);
+
+    if (decResult < 0) {
+      return null;
+    } else {
+      var hexResult = this.convertToHex(decResult);
+      if (hexResult.length > 6) {
+        return null;
+      } else return hexResult;
+    }
+  }
 }
 
 export const Calculator = Calculator;
