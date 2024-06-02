@@ -50,4 +50,6 @@ class Calculator {
   }
 }
 
-export const Calculator = Calculator;
+module.exports = {
+  Calculator: Calculator,
+};
