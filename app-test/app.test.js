@@ -10,13 +10,12 @@ test("use jsdom in this test file", () => {
 
 describe("Input #1", () => {
   test("Page has input #1", () => {
+    console.log($("#input1"));
     return expect($("#input1")).not.toBeNull();
   });
 
   test("Input #1 has a maxlength=3", () => {
-    return expect(
-      Promise.resolve(document.getElementById("input1").maxlength()),
-    ).resolves.toBe("3");
+    return expect($("#input1").maxlength).toBe("3");
   });
 
   test("Input #1 is required", () => {
