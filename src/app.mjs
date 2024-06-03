@@ -21,7 +21,5 @@ app.get("/", (req, res) => {
 
 //IS FOR JEST
 module.exports = {
-  app: app.listen(4000, () => {
-    //console.log("App listening on port 4000!");
-  }),
+  app: app.listen(4000, () => {}),
 };
