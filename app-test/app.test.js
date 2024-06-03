@@ -3,31 +3,32 @@
  */
 import request from "supertest";
 import { app } from "../src/app.mjs";
+import { parse } from "node-html-parser";
 
 test("use jsdom in this test file", async () => {
-  //const element = document.createElement("div");
-  //expect(element).not.toBeNull();
-
-  const result = await request(app).get("/");
-  console.log(result);
+  const element = document.createElement("div");
+  expect(element).not.toBeNull();
 });
 
-// describe("Input #1", () => {
-//   test("Page has input #1", () => {
-//     console.log($("#input1"));
-//     return expect($("#input1")).not.toBeNull();
-//   });
+describe("Input #1", () => {
+  test("Page has input #1", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
 
-//   test("Input #1 has a maxlength=3", () => {
-//     return expect($("#input1").maxlength).toBe("3");
-//   });
+    expect(root.querySelector("#input1")).not.toBeNull();
+    //console.log(result);
+  });
 
-//   test("Input #1 is required", () => {
-//     return expect(Promise.resolve(document.getElementById("input1").required()))
-//       .resolves.not()
-//       .toBeNull();
-//   });
-// });
+  //   test("Input #1 has a maxlength=3", () => {
+  //     return expect($("#input1").maxlength).toBe("3");
+  //   });
+
+  //   test("Input #1 is required", () => {
+  //     return expect(Promise.resolve(document.getElementById("input1").required()))
+  //       .resolves.not()
+  //       .toBeNull();
+  //   });
+});
 
 // describe("Input #2", () => {
 //   test("Page has input #2", () => {
