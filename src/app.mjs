@@ -1,5 +1,6 @@
 //Load express module
-import express from "express";
+//import express from "express";
+const express = require("express");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -12,8 +13,9 @@ app.get("/", (req, res) => {
 });
 
 //Launch listening server on port 8080
-app.listen(4000, () => {
-  console.log("App listening on port 4000!");
-});
 
-export default app;
+module.exports = {
+  app: app.listen(4000, () => {
+    //console.log("App listening on port 4000!");
+  }),
+};
