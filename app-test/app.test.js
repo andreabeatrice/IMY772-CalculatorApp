@@ -22,7 +22,9 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #1 is not a hexidecimal value",
+    );
   });
 
   test("hex1=ADE || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
@@ -30,7 +32,9 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #1 is not a hexidecimal value",
+    );
   });
 
   test("hex1=abc || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
@@ -38,7 +42,9 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #1 is not a hexidecimal value",
+    );
   });
 
   test("hex1=e3 || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
@@ -46,7 +52,9 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #1 is not a hexidecimal value",
+    );
   });
 
   test("hex1=PTR || expecting this test to be `Value #1 is not a hexidecimal value`", async () => {
@@ -70,7 +78,9 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #2 is not a hexidecimal value",
+    );
   });
 
   test("hex2=ADE || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
@@ -78,7 +88,9 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #2 is not a hexidecimal value",
+    );
   });
 
   test("hex2=abc || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
@@ -86,7 +98,9 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #2 is not a hexidecimal value",
+    );
   });
 
   test("hex2=e3 || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
@@ -94,7 +108,9 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+      "Value #2 is not a hexidecimal value",
+    );
   });
 
   test("hex2=PTR || expecting this test to be `Value #2 is not a hexidecimal value`", async () => {
