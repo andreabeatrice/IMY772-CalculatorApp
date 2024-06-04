@@ -58,33 +58,45 @@ describe("Input #2", () => {
   });
 });
 
+describe("Operations input", () => {
+  describe("+", () => {
+    test("Page has addition radio button", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonAddition")).not.toBeNull();
+    });
+
+    test("#radioButtonAddition is of type 'radio'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonAddition")._attrs.type).toBe(
+        "radio",
+      );
+    });
+
+    test("#radioButtonAddition is in 'operation' group", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonAddition")._attrs.name).toBe(
+        "operation",
+      );
+    });
+
+    test("#radioButtonAddition has a value of 'add'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonAddition")._attrs.value).toBe(
+        "add",
+      );
+    });
+  });
+});
+
 // describe("Operations input", () => {
-//   //toBeInstanceOf
-//   describe("+", () => {
-//     test("Addition radio button exists", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonAddition")),
-//       ).resolves.not.toBeNull();
-//     });
-
-//     test("Addition radio button is a radio button", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonAddition").type),
-//       ).resolves.toBe("radio");
-//     });
-
-//     test("Addition radio button in operation group", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonAddition").name),
-//       ).resolves.toBe("operation");
-//     });
-
-//     test("Addition radio button value is add", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonAddition").value),
-//       ).resolves.toBe("add");
-//     });
-//   });
 
 //   describe("-", () => {
 //     test("Subtraction radio button exists", () => {
