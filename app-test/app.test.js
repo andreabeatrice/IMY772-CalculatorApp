@@ -94,37 +94,81 @@ describe("Operations input", () => {
       );
     });
   });
+
+  describe("-", () => {
+    test("Page has subtraction radio button", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")).not.toBeNull();
+    });
+
+    test("#radioButtonSubtraction is of type 'radio'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")._attrs.type).toBe(
+        "radio",
+      );
+    });
+
+    test("#radioButtonSubtraction is in 'operation' group", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")._attrs.name).toBe(
+        "operation",
+      );
+    });
+
+    test("#radioButtonSubtraction has a value of 'sub'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")._attrs.value).toBe(
+        "sub",
+      );
+    });
+  });
+
+  describe("-", () => {
+    test("Page has subtraction radio button", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")).not.toBeNull();
+    });
+
+    test("#radioButtonSubtraction is of type 'radio'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")._attrs.type).toBe(
+        "radio",
+      );
+    });
+
+    test("#radioButtonSubtraction is in 'operation' group", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")._attrs.name).toBe(
+        "operation",
+      );
+    });
+
+    test("#radioButtonSubtraction has a value of 'sub'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonSubtraction")._attrs.value).toBe(
+        "sub",
+      );
+    });
+  });
 });
 
 // describe("Operations input", () => {
-
-//   describe("-", () => {
-//     test("Subtraction radio button exists", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonSubtraction")),
-//       ).resolves.not.toBeNull();
-//     });
-
-//     test("Subtraction radio button is a radio button", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonSubtraction").type),
-//       ).resolves.toBe("radio");
-//     });
-
-//     test("Subtraction radio button in operation group", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonSubtraction").name),
-//       ).resolves.toBe("operation");
-//     });
-
-//     test("Subtraction radio button value is sub", () => {
-//       return expect(
-//         Promise.resolve(
-//           document.getElementById("radioButtonSubtraction").value,
-//         ),
-//       ).resolves.toBe("sub");
-//     });
-//   });
 
 //   describe("×", () => {
 //     test("Multiplication radio button exists", () => {
