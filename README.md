@@ -11,9 +11,8 @@ The calculator application should be able to perform basic arithmetic functions 
 - [ ] Needs to be able to take input #2
   - [ ] Needs to limit input #2 to being 3 characters long
   - [ ] Needs to limit the available characters for input #2 to [0-9, A-F]
-- [ ] Needs to be able to take input #3
-  - [ ] Needs to limit input #3 to being 1 character long
-  - [ ] Needs to limit input #3 to being one of [×+−÷]
+- [ ] Needs to be able to take an operation input
+  - [ ] Each operation [×+−÷] should be available as a radio button
   - [ ] Needs to reject the [−] input if the value of input #1 is smaller than the value of input #2
 - [ ] Needs to be able to send the values from the inputs to a server
 - [ ] Needs to be able to convert the value from inputs #1 and #2 to a decimal number
