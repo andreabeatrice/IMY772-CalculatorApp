@@ -22,7 +22,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -32,7 +32,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -42,7 +42,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -52,7 +52,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -62,7 +62,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -78,7 +78,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -88,7 +88,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -98,7 +98,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -108,7 +108,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -118,7 +118,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -128,7 +128,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
       "Value #1 and Value #2 are not hexidecimal values",
     );
   });
@@ -144,7 +144,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("30");
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("30");
   });
 
   test("hex1=22 hex2=C operation=sub", async () => {
@@ -152,7 +152,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("16");
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("16");
   });
 
   test("hex1=aaa hex2=2 operation=mul", async () => {
@@ -160,7 +160,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("1554");
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("1554");
   });
 
   test("hex1=4e hex2=D operation=div", async () => {
@@ -168,7 +168,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("6");
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("6");
   });
 
   test("hex1=C hex2=1F4 operation=sub", async () => {
@@ -176,7 +176,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
       "CALCULATION ERROR",
     );
   });
@@ -186,7 +186,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("5");
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("5");
   });
 
   test("hex1=EA hex2=8 operation=div", async () => {
@@ -194,7 +194,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("1D");
+    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("1D");
   });
 });
 

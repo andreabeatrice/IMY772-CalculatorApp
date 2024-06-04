@@ -44,16 +44,10 @@ app.get("/", (req, res) => {
     }
   }
 
-  // if (calculator.checkHexadecimal(req.query.hex1) == false) {
-  //   errorM = "Value #1 is not a hexidecimal value";
-  // }
-
   res.render("index", {
     response: responseText,
   });
 });
-
-//Launch listening server on port 8080
 
 //IS FOR RUNNING
 // export const server = app.listen(4000, () => {

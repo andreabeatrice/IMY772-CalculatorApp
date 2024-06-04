@@ -4,7 +4,6 @@ The calculator application should be able to perform basic arithmetic functions 
 
 ## Functional Requirements
 
-
 - [x] Needs to start a server
 - [x] Needs to be able to take input #1
   - [x] Needs to limit input #1 to being 3 characters long
