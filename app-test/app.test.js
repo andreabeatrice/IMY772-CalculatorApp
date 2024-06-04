@@ -118,6 +118,20 @@ describe("hex2 check hexadecimal", () => {
   });
 });
 
+describe("calculator.go()", () => {
+  afterEach(() => {
+    app.close();
+  });
+
+  test("hex1=6 hex2=2A operation=add", async () => {
+    const s = await request(app).get("/?hex1=6&hex2=2A&operation=add#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("30");
+  });
+});
+
 describe("Input #1", () => {
   beforeAll(async () => {
     server = await request(app).get("/");

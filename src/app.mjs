@@ -14,23 +14,29 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   //req.query: { hex1: '333', hex2: '333', operation: 'mul' }
   const calculator = new Calculator();
-  var errorM = " ";
+  var responseText = " ";
   if (req.query.hex1 && req.query.hex2 && req.query.operation) {
     if (
       calculator.checkHexadecimal(req.query.hex1) == false &&
       calculator.checkHexadecimal(req.query.hex2)
     ) {
-      errorM = "Value #1 is not a hexidecimal value";
+      responseText = "Value #1 is not a hexidecimal value";
     } else if (
       calculator.checkHexadecimal(req.query.hex2) == false &&
       calculator.checkHexadecimal(req.query.hex1)
     ) {
-      errorM = "Value #2 is not a hexidecimal value";
+      responseText = "Value #2 is not a hexidecimal value";
     } else if (
       calculator.checkHexadecimal(req.query.hex1) == false &&
       calculator.checkHexadecimal(req.query.hex2) == false
     ) {
-      errorM = "Value #1 and Value #2 are not hexidecimal values";
+      responseText = "Value #1 and Value #2 are not hexidecimal values";
+    } else {
+      responseText = calculator.go(
+        req.query.hex1,
+        req.query.hex2,
+        req.query.operation,
+      );
     }
   }
 
@@ -39,8 +45,7 @@ app.get("/", (req, res) => {
   // }
 
   res.render("index", {
-    errorMessage: errorM,
-    answer: "",
+    response: responseText,
   });
 });
 
