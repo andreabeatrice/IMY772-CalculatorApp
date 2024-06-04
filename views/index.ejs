@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <form id="calculatorForm" method="GET" action="#" class="m-3">
+            <input id="input1" maxlength="3" required name="hex1" /> <br/>
+            <input id="input2" maxlength="3" required name="hex2" class="mt-2"/> <br/>
+
+            <div class="mt-2">
+                <label class="radio-inline mr-2">
+                    <input type="radio" id="radioButtonAddition" name="operation" value="add"> +
+                </label>
+                <label class="radio-inline mr-2">
+                    <input type="radio" id="radioButtonSubtraction" name="operation" value="sub"> -
+                </label>
+                <label class="radio-inline mr-2">
+                    <input type="radio" id="radioButtonMultiplication" name="operation" value="mul"> ×
+                </label>
+                <label class="radio-inline mr-2">
+                    <input type="radio" id="radioButtonDivision" name="operation" value="div"> ÷
+                </label>
+            </div>
+
+            <button type="submit" id="submitButton" class="btn btn-default">Submit</button>
+
+            <p id="result"><%= response %></p>
+
+        </form>
+    </body>
+</html>

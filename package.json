@@ -2,17 +2,38 @@
   "name": "imy772-calculatorapp",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "npm run mocha && npm run jest",
+    "jest": "jest app-test",
+    "mocha": "mocha server-test",
+    "start": "node src/app.mjs"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "chai": "^4.0.0",
+  "devDependencies": {
+    "@babel/cli": "^7.24.6",
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "babel-jest": "^29.7.0",
+    "chai": "^4.4.1",
     "chai-http": "^4.4.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-runner-groups": "^2.2.0",
+    "jquery": "^3.7.1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mocha": "^10.4.0"
+    "mocha": "^10.4.0",
+    "node-html-parser": "^6.1.13",
+    "request": "^2.88.2",
+    "supertest": "^7.0.0"
   }
 }
