@@ -22,6 +22,18 @@ test("use jsdom in this test file", async () => {
   expect(element).not.toBeNull();
 });
 
+test("hex1=333 || expecting this test to be false", async () => {
+  const s = await request(app).get("/?hex1=333&hex2=333&operation=mul#");
+  const r = parse(s.text);
+  const path = s.req.path;
+
+  expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+    "Value #1 is not a hexidecimal value",
+  );
+
+  app.close();
+});
+
 describe("Input #1", () => {
   test("Page has input #1", async () => {
     expect(root.querySelector("#input1")).not.toBeNull();

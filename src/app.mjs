@@ -13,14 +13,22 @@ app.use(express.static("public"));
 //Define request response in root URL (/)
 app.get("/", (req, res) => {
   //req.query: { hex1: '333', hex2: '333', operation: 'mul' }
-  // const calculator = new Calculator();
-  // calculator.checkHexadecimal(req.query.hex1);
+  const calculator = new Calculator();
+  var errorM = "";
+  if (req.query.hex1) {
+    if (calculator.checkHexadecimal(req.query.hex1) == false) {
+      errorM = "Value #1 is not a hexidecimal value";
+    }
+  }
 
-  res.render("index", { answer: "" });
+  // if (calculator.checkHexadecimal(req.query.hex1) == false) {
+  //   errorM = "Value #1 is not a hexidecimal value";
+  // }
 
-  //return calculator.checkHexadecimal(req.query.hex1);
-
-  //console.log(c.checkHexadecimal(req.query.hex1));
+  res.render("index", {
+    errorMessage: errorM,
+    answer: "",
+  });
 });
 
 //Launch listening server on port 8080
