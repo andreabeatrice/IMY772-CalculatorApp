@@ -211,24 +211,11 @@ describe("Form", () => {
 
     expect(root.querySelector("#calculatorForm")).not.toBeNull();
   });
+
+  test("Has submit button", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#submitButton")).not.toBeNull();
+  });
 });
-
-// describe("Form", () => {
-//   test("Form exists", () => {
-//     return expect(
-//       Promise.resolve(document.getElementById("calculatorForm")),
-//     ).resolves.not.toBeNull();
-//   });
-
-//   test("Has submit button", () => {
-//     return expect(
-//       Promise.resolve(document.getElementById("submitButton")),
-//     ).resolves.not.toBeNull();
-//   });
-
-//   test("Submit button is an input of type submit", () => {
-//     return expect(
-//       Promise.resolve(document.getElementById("submitButton").type),
-//     ).resolves.toBe("submit");
-//   });
-// });
