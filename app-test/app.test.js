@@ -204,6 +204,15 @@ describe("Operations input", () => {
   });
 });
 
+describe("Form", () => {
+  test("Form exists", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#calculatorForm")).not.toBeNull();
+  });
+});
+
 // describe("Form", () => {
 //   test("Form exists", () => {
 //     return expect(
