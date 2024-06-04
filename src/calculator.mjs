@@ -1,4 +1,5 @@
-class Calculator {
+//THIS EXPORT KEYWORD IS FOR RUNNING; REMOVE FOR JEST
+/*export*/ class Calculator {
   constructor() {}
 
   checkHexadecimal(hex) {
@@ -50,6 +51,7 @@ class Calculator {
   }
 }
 
+//FOR JEST
 module.exports = {
   Calculator: Calculator,
 };
