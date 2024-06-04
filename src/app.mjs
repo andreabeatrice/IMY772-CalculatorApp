@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   //req.query: { hex1: '333', hex2: '333', operation: 'mul' }
   const calculator = new Calculator();
-  var errorM = "";
+  var errorM = " ";
   if (req.query.hex1) {
     if (calculator.checkHexadecimal(req.query.hex1) == false) {
       errorM = "Value #1 is not a hexidecimal value";

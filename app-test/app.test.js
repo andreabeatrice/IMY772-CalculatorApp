@@ -7,34 +7,51 @@ import { parse } from "node-html-parser";
 const Calculator = require("../src/calculator.mjs").Calculator;
 var server, root;
 
-beforeAll(async () => {
-  server = await request(app).get("/");
-  root = parse(server.text);
-  return;
-});
-
-afterAll(() => {
-  app.close();
-});
-
 test("use jsdom in this test file", async () => {
   const element = document.createElement("div");
   expect(element).not.toBeNull();
 });
 
-test("hex1=333 || expecting this test to be false", async () => {
-  const s = await request(app).get("/?hex1=333&hex2=333&operation=mul#");
-  const r = parse(s.text);
-  const path = s.req.path;
+describe("hex1 check hexadecimal", () => {
+  afterEach(() => {
+    app.close();
+  });
 
-  expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
-    "Value #1 is not a hexidecimal value",
-  );
+  test("hex1=234 || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=234&hex2=333&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
 
-  app.close();
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex1=ADE || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=ADE&hex2=333&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex1=abc || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=abc&hex2=333&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
 });
 
 describe("Input #1", () => {
+  beforeAll(async () => {
+    server = await request(app).get("/");
+    root = parse(server.text);
+    return;
+  });
+
+  afterAll(() => {
+    app.close();
+  });
   test("Page has input #1", async () => {
     expect(root.querySelector("#input1")).not.toBeNull();
     //console.log(result);
