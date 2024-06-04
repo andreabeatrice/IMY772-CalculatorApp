@@ -32,33 +32,31 @@ describe("Input #1", () => {
 
     expect(root.querySelector("#input1")._attrs.required).not.toBeNull();
   });
-
-  //   test("Input #1 is required", () => {
-  //     return expect(Promise.resolve(document.getElementById("input1").required()))
-  //       .resolves.not()
-  //       .toBeNull();
-  //   });
 });
 
-// describe("Input #2", () => {
-//   test("Page has input #2", () => {
-//     return expect(
-//       Promise.resolve(document.getElementById("input2")),
-//     ).resolves.not.toBeNull();
-//   });
+describe("Input #2", () => {
+  test("Page has input #2", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
 
-//   test("Input #2 has a maxlength=3", () => {
-//     return expect(
-//       Promise.resolve(document.getElementById("input2").maxlength()),
-//     ).resolves.toBe("3");
-//   });
+    expect(root.querySelector("#input2")).not.toBeNull();
+    //console.log(result);
+  });
 
-//   test("Input #2 is required", () => {
-//     return expect(Promise.resolve(document.getElementById("input2").required()))
-//       .resolves.not()
-//       .toBeNull();
-//   });
-// });
+  test("Input #2 has a maxlength=3", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#input2")._attrs.maxlength).toBe("3");
+  });
+
+  test("Input #2 is required", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#input2")._attrs.required).not.toBeNull();
+  });
+});
 
 // describe("Operations input", () => {
 //   //toBeInstanceOf

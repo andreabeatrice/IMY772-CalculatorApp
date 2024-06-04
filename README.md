@@ -8,8 +8,8 @@ The calculator application should be able to perform basic arithmetic functions 
 - [x] Needs to be able to take input #1
   - [x] Needs to limit input #1 to being 3 characters long
   - [ ] Needs to limit the available characters for input #1 to [0-9, A-F]
-- [ ] Needs to be able to take input #2
-  - [ ] Needs to limit input #2 to being 3 characters long
+- [x] Needs to be able to take input #2
+  - [x] Needs to limit input #2 to being 3 characters long
   - [ ] Needs to limit the available characters for input #2 to [0-9, A-F]
 - [ ] Needs to be able to take input #3
   - [ ] Needs to limit input #3 to being 1 character long
