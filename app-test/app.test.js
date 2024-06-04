@@ -32,6 +32,13 @@ describe("Input #1", () => {
 
     expect(root.querySelector("#input1")._attrs.required).not.toBeNull();
   });
+
+  test("Input #1 has a name", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#input1")._attrs.name).not.toBeNull();
+  });
 });
 
 describe("Input #2", () => {
@@ -55,6 +62,13 @@ describe("Input #2", () => {
     const root = parse(result.text);
 
     expect(root.querySelector("#input2")._attrs.required).not.toBeNull();
+  });
+
+  test("Input #2 has a name", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#input2")._attrs.name).not.toBeNull();
   });
 });
 
