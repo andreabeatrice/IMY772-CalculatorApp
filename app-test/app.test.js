@@ -40,6 +40,82 @@ describe("hex1 check hexadecimal", () => {
 
     expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
   });
+
+  test("hex1=e3 || expecting this test to be empty ie hex1 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=e3&hex2=333&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex1=PTR || expecting this test to be `Value #1 is not a hexidecimal value`", async () => {
+    const s = await request(app).get("/?hex1=PTR&hex2=333&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+      "Value #1 is not a hexidecimal value",
+    );
+  });
+});
+
+describe("hex2 check hexadecimal", () => {
+  afterEach(() => {
+    app.close();
+  });
+
+  test("hex2=234 || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=234&hex2=234&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex2=ADE || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=ADE&hex2=ADE&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex2=abc || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=abc&hex2=abc&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex2=e3 || expecting this test to be empty ie hex2 is valid hexadecimal", async () => {
+    const s = await request(app).get("/?hex1=e3&hex2=e3&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(" ");
+  });
+
+  test("hex2=PTR || expecting this test to be `Value #2 is not a hexidecimal value`", async () => {
+    const s = await request(app).get("/?hex1=333&hex2=PTR&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+      "Value #2 is not a hexidecimal value",
+    );
+  });
+
+  test("hex1=m && hex2=PTR || expecting this test to be `Value #1 & Value #2 are not hexidecimal values`", async () => {
+    const s = await request(app).get("/?hex1=m&hex2=PTR&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+      "Value #1 and Value #2 are not hexidecimal values",
+    );
+  });
 });
 
 describe("Input #1", () => {
