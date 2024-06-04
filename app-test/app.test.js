@@ -166,68 +166,43 @@ describe("Operations input", () => {
       ).toBe("mul");
     });
   });
+
+  describe("÷", () => {
+    test("Page has division radio button", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonDivision")).not.toBeNull();
+    });
+
+    test("#radioButtonDivision is of type 'radio'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonDivision")._attrs.type).toBe(
+        "radio",
+      );
+    });
+
+    test("#radioButtonDivision is in 'operation' group", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonDivision")._attrs.name).toBe(
+        "operation",
+      );
+    });
+
+    test("#radioButtonDivision has a value of 'div'", async () => {
+      const result = await request(app).get("/");
+      const root = parse(result.text);
+
+      expect(root.querySelector("#radioButtonDivision")._attrs.value).toBe(
+        "div",
+      );
+    });
+  });
 });
-
-// describe("Operations input", () => {
-
-//   describe("×", () => {
-//     test("Multiplication radio button exists", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonMultiplication")),
-//       ).resolves.not.toBeNull();
-//     });
-
-//     test("Multiplication radio button is a radio button", () => {
-//       return expect(
-//         Promise.resolve(
-//           document.getElementById("radioButtonMultiplication").type,
-//         ),
-//       ).resolves.toBe("radio");
-//     });
-
-//     test("Multiplication radio button in operation group", () => {
-//       return expect(
-//         Promise.resolve(
-//           document.getElementById("radioButtonMultiplication").name,
-//         ),
-//       ).resolves.toBe("operation");
-//     });
-
-//     test("Multiplication radio button value is mul", () => {
-//       return expect(
-//         Promise.resolve(
-//           document.getElementById("radioButtonMultiplication").value,
-//         ),
-//       ).resolves.toBe("mul");
-//     });
-//   });
-
-//   describe("÷", () => {
-//     test("Division radio button exists", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonDivision")),
-//       ).resolves.not.toBeNull();
-//     });
-
-//     test("Division radio button is a radio button", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonDivision").type),
-//       ).resolves.toBe("radio");
-//     });
-
-//     test("Division radio button in operation group", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonDivision").name),
-//       ).resolves.toBe("operation");
-//     });
-
-//     test("Division radio button value is div", () => {
-//       return expect(
-//         Promise.resolve(document.getElementById("radioButtonDivision").value),
-//       ).resolves.toBe("div");
-//     });
-//   });
-// });
 
 // describe("Form", () => {
 //   test("Form exists", () => {
