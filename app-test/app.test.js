@@ -24,12 +24,14 @@ describe("Input #1", () => {
     const root = parse(result.text);
 
     expect(root.querySelector("#input1")._attrs.maxlength).toBe("3");
-    //console.log(result);
   });
 
-  //   test("Input #1 has a maxlength=3", () => {
-  //     return expect($("#input1").maxlength).toBe("3");
-  //   });
+  test("Input #1 is required", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#input1")._attrs.required).not.toBeNull();
+  });
 
   //   test("Input #1 is required", () => {
   //     return expect(Promise.resolve(document.getElementById("input1").required()))
