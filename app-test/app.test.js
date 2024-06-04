@@ -131,39 +131,39 @@ describe("Operations input", () => {
     });
   });
 
-  describe("-", () => {
-    test("Page has subtraction radio button", async () => {
+  describe("×", () => {
+    test("Page has multiplication radio button", async () => {
       const result = await request(app).get("/");
       const root = parse(result.text);
 
-      expect(root.querySelector("#radioButtonSubtraction")).not.toBeNull();
+      expect(root.querySelector("#radioButtonMultiplication")).not.toBeNull();
     });
 
-    test("#radioButtonSubtraction is of type 'radio'", async () => {
+    test("#radioButtonMultiplication is of type 'radio'", async () => {
       const result = await request(app).get("/");
       const root = parse(result.text);
 
-      expect(root.querySelector("#radioButtonSubtraction")._attrs.type).toBe(
+      expect(root.querySelector("#radioButtonMultiplication")._attrs.type).toBe(
         "radio",
       );
     });
 
-    test("#radioButtonSubtraction is in 'operation' group", async () => {
+    test("#radioButtonMultiplication is in 'operation' group", async () => {
       const result = await request(app).get("/");
       const root = parse(result.text);
 
-      expect(root.querySelector("#radioButtonSubtraction")._attrs.name).toBe(
+      expect(root.querySelector("#radioButtonMultiplication")._attrs.name).toBe(
         "operation",
       );
     });
 
-    test("#radioButtonSubtraction has a value of 'sub'", async () => {
+    test("#radioButtonMultiplication has a value of 'mul'", async () => {
       const result = await request(app).get("/");
       const root = parse(result.text);
 
-      expect(root.querySelector("#radioButtonSubtraction")._attrs.value).toBe(
-        "sub",
-      );
+      expect(
+        root.querySelector("#radioButtonMultiplication")._attrs.value,
+      ).toBe("mul");
     });
   });
 });
