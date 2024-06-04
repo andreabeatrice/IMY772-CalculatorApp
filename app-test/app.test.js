@@ -19,6 +19,14 @@ describe("Input #1", () => {
     //console.log(result);
   });
 
+  test("Input #1 has a maxlength=3", async () => {
+    const result = await request(app).get("/");
+    const root = parse(result.text);
+
+    expect(root.querySelector("#input1")._attrs.maxlength).toBe("3");
+    //console.log(result);
+  });
+
   //   test("Input #1 has a maxlength=3", () => {
   //     return expect($("#input1").maxlength).toBe("3");
   //   });
