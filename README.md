@@ -14,8 +14,9 @@ The calculator application should be able to perform basic arithmetic functions 
   - [ ] Needs to limit the available characters for input #2 to [0-9, A-F]
 - [x] Needs to be able to take an operation input
   - [x] Each operation [×+−÷] should be available as a radio button
-  - [ ] Needs to reject the [−] input if the value of input #1 is smaller than the value of input #2
-- [ ] Needs to be able to send the values from the inputs to a server
+  - [ ] ~~Needs to reject the [−] input if the value of input #1 is smaller than the value of input #2~~
+  - [ ] Returns ```CALCULATION ERROR``` message if the value of input #1 is smaller than the value of input #2 and the operation is [-]
+- [x] Needs to be able to send the values from the inputs to a server
 - [x] Needs to be able to convert the value from inputs #1 and #2 to a decimal number
 - [x] Needs to be able to apply the arithmetic function given in input #3 to these decimal values
 - [x] Needs to be able to round the answer from the arithmetic function to the nearest whole number

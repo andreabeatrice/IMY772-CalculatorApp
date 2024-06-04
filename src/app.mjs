@@ -37,6 +37,10 @@ app.get("/", (req, res) => {
         req.query.hex2,
         req.query.operation,
       );
+
+      if (responseText == null) {
+        responseText = "CALCULATION ERROR";
+      }
     }
   }
 

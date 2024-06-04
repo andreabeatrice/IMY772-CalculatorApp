@@ -146,6 +146,56 @@ describe("calculator.go()", () => {
 
     expect(r.querySelector("#par").childNodes[0]._rawText).toBe("30");
   });
+
+  test("hex1=22 hex2=C operation=sub", async () => {
+    const s = await request(app).get("/?hex1=22&hex2=C&operation=sub#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("16");
+  });
+
+  test("hex1=aaa hex2=2 operation=mul", async () => {
+    const s = await request(app).get("/?hex1=aaa&hex2=2&operation=mul#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("1554");
+  });
+
+  test("hex1=4e hex2=D operation=div", async () => {
+    const s = await request(app).get("/?hex1=4e&hex2=D&operation=div#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("6");
+  });
+
+  test("hex1=C hex2=1F4 operation=sub", async () => {
+    const s = await request(app).get("/?hex1=c&hex2=1F4&operation=sub#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe(
+      "CALCULATION ERROR",
+    );
+  });
+
+  test("hex1=9 hex2=2 operation=div", async () => {
+    const s = await request(app).get("/?hex1=9&hex2=2&operation=div#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("5");
+  });
+
+  test("hex1=EA hex2=8 operation=div", async () => {
+    const s = await request(app).get("/?hex1=EA&hex2=8&operation=div#");
+    const r = parse(s.text);
+    const path = s.req.path;
+
+    expect(r.querySelector("#par").childNodes[0]._rawText).toBe("1D");
+  });
 });
 
 describe("Input #1", () => {
