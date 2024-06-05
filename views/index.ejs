@@ -6,12 +6,13 @@
     </head>
     <body>
         <form id="calculatorForm" method="GET" action="#" class="m-3">
-            <input id="input1" maxlength="3" required name="hex1" /> <br/>
-            <input id="input2" maxlength="3" required name="hex2" class="mt-2"/> <br/>
+            <input id="visibleInput" maxlength="3" required value=""/> <br/>
+            <input type="hidden" id="input1" maxlength="3" required name="hex1" value=""/> <br/>
+            <input type="hidden" id="input2" maxlength="3" required name="hex2" class="mt-2" value=""/> <br/>
 
             <div class="mt-2">
                 <label class="radio-inline mr-2">
-                    <input type="radio" id="radioButtonAddition" name="operation" value="add"> +
+                    <input type="radio" id="radioButtonAddition" name="operation" value="add" onclick="startNewInput()"> +
                 </label>
                 <label class="radio-inline mr-2">
                     <input type="radio" id="radioButtonSubtraction" name="operation" value="sub"> -
@@ -24,10 +25,106 @@
                 </label>
             </div>
 
-            <button type="submit" id="submitButton" class="btn btn-default">Submit</button>
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col">
+                        <button id="one" type="button" class="btn btn-light" onclick="inputAdded(1)">1</button>
+                    </div>
+                    <div class="col">
+                        <button id="two" type="button" class="btn btn-light" onclick="inputAdded(2)">2</button>
+                    </div>
+                    <div class="col">
+                        <button id="three" type="button" class="btn btn-light" onclick="inputAdded(3)">3</button>
+                    </div>
+                    <div class="col">
+                        <button id="four" type="button" class="btn btn-light" onclick="inputAdded(4)">4</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="five" type="button" class="btn btn-light" onclick="inputAdded(5)">5</button>
+                    </div>
+                    <div class="col">
+                        <button id="six" type="button" class="btn btn-light" onclick="inputAdded(6)">6</button>
+                    </div>
+                    <div class="col">
+                        <button id="seven" type="button" class="btn btn-light" onclick="inputAdded(7)">7</button>
+                    </div>
+                    <div class="col">
+                        <button id="eight" type="button" class="btn btn-light" onclick="inputAdded(8)">8</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="nine" type="button" class="btn btn-light" onclick="inputAdded(9)">9</button>
+                    </div>
+                    <div class="col">
+                        <button id="zero" type="button" class="btn btn-light" onclick="inputAdded(0)">0</button>
+                    </div>
+                     <div class="col">
+                        <button id="A" type="button" class="btn btn-light" onclick="inputAdded(A)">A</button>
+                    </div>
+                    <div class="col">
+                        <button id="B" type="button" class="btn btn-light" onclick="inputAdded(B)">B</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="C" type="button" class="btn btn-light" onclick="inputAdded(C)">C</button>
+                    </div>
+                    <div class="col">
+                        <button id="D" type="button" class="btn btn-light" onclick="inputAdded(D)">D</button>
+                    </div>
+                    <div class="col">
+                        <button id="E" type="button" class="btn btn-light" onclick="inputAdded(E)">E</button>
+                    </div>
+                    <div class="col">
+                        <button id="F" type="button" class="btn btn-light" onclick="inputAdded(F)">F</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="cls" type="button" class="btn btn-light" onclick="clearAll()">cls</button>
+                    </div>
+                    <div class="col">
+                        <button id="back" type="button" class="btn btn-light" onclick="backspace()">\u232B</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit" id="submitButton" class="btn btn-default">\=</button>
+                    </div>
+                </div>
+            </div>
 
             <p id="result"><%= response %></p>
 
         </form>
+        <script>
+            startNewInput = () => {
+                document.getElementById('hex1').setAttribute('value', `${document.getElementById('visibleInput').getAttribute('value')}`);
+                document.getElementById('visibleInput').setAttribute('value', "");
+            }
+
+            inputAdded = (number) => {
+                document.getElementById('visibleInput').setAttribute('value',`${document.getElementById('visibleInput').getAttribute('value')}${number}`);
+            }
+
+            backspace = () => {
+                var l = document.getElementById('visibleInput').getAttribute('value');
+                var lb = l.substring(0, l.length-1);
+                document.getElementById('visibleInput').setAttribute('value',`${lb}`);
+            }
+
+            clearAll = () => {
+                document.getElementById('hex1').setAttribute('value', "");
+                document.getElementById('hex2').setAttribute('value', "");
+                document.getElementById('visibleInput').setAttribute('value', "");
+
+                document.getElementById('radioButtonAddition').setAttribute('checked', false);
+                document.getElementById('radioButtonSubtraction').setAttribute('checked', false);
+                document.getElementById('radioButtonMultiplication').setAttribute('checked', false);
+                document.getElementById('radioButtonDivision').setAttribute('checked', false);
+
+            }
+        </script>
     </body>
 </html>
