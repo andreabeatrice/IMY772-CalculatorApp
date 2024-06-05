@@ -22,7 +22,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -32,7 +32,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -42,7 +42,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -52,7 +52,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -62,7 +62,7 @@ describe("hex1 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result")._attrs.value).toBe(
       "Value #1 is not a hexidecimal value",
     );
   });
@@ -78,7 +78,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -88,7 +88,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -98,7 +98,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -108,7 +108,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).not.toBe(
+    expect(r.querySelector("#result")._attrs.value).not.toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -118,7 +118,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result")._attrs.value).toBe(
       "Value #2 is not a hexidecimal value",
     );
   });
@@ -128,7 +128,7 @@ describe("hex2 check hexadecimal", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
+    expect(r.querySelector("#result")._attrs.value).toBe(
       "Value #1 and Value #2 are not hexidecimal values",
     );
   });
@@ -144,7 +144,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("30");
+    expect(r.querySelector("#result")._attrs.value).toBe("30");
   });
 
   test("hex1=22 hex2=C operation=sub", async () => {
@@ -152,7 +152,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("16");
+    expect(r.querySelector("#result")._attrs.value).toBe("16");
   });
 
   test("hex1=aaa hex2=2 operation=mul", async () => {
@@ -160,7 +160,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("1554");
+    expect(r.querySelector("#result")._attrs.value).toBe("1554");
   });
 
   test("hex1=4e hex2=D operation=div", async () => {
@@ -168,7 +168,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("6");
+    expect(r.querySelector("#result")._attrs.value).toBe("6");
   });
 
   test("hex1=C hex2=1F4 operation=sub", async () => {
@@ -176,9 +176,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe(
-      "CALCULATION ERROR",
-    );
+    expect(r.querySelector("#result")._attrs.value).toBe("CALCULATION ERROR");
   });
 
   test("hex1=9 hex2=2 operation=div", async () => {
@@ -186,7 +184,7 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("5");
+    expect(r.querySelector("#result")._attrs.value).toBe("5");
   });
 
   test("hex1=EA hex2=8 operation=div", async () => {
@@ -194,11 +192,11 @@ describe("calculator.go()", () => {
     const r = parse(s.text);
     const path = s.req.path;
 
-    expect(r.querySelector("#result").childNodes[0]._rawText).toBe("1D");
+    expect(r.querySelector("#result")._attrs.value).toBe("1D");
   });
 });
 
-describe("Input #1", () => {
+describe("Testing the page", () => {
   beforeAll(async () => {
     server = await request(app).get("/");
     root = parse(server.text);
@@ -208,150 +206,153 @@ describe("Input #1", () => {
   afterAll(() => {
     app.close();
   });
-  test("Page has input #1", async () => {
-    expect(root.querySelector("#input1")).not.toBeNull();
-    //console.log(result);
-  });
 
-  test("Input #1 has a maxlength=3", async () => {
-    expect(root.querySelector("#input1")._attrs.maxlength).toBe("3");
-  });
-
-  test("Input #1 is required", async () => {
-    expect(root.querySelector("#input1")._attrs.required).not.toBeNull();
-  });
-
-  test("Input #1 has a name", async () => {
-    expect(root.querySelector("#input1")._attrs.name).not.toBeNull();
-  });
-});
-
-describe("Input #2", () => {
-  test("Page has input #2", async () => {
-    expect(root.querySelector("#input2")).not.toBeNull();
-    //console.log(result);
-  });
-
-  test("Input #2 has a maxlength=3", async () => {
-    expect(root.querySelector("#input2")._attrs.maxlength).toBe("3");
-  });
-
-  test("Input #2 is required", async () => {
-    expect(root.querySelector("#input2")._attrs.required).not.toBeNull();
-  });
-
-  test("Input #2 has a name", async () => {
-    expect(root.querySelector("#input2")._attrs.name).not.toBeNull();
-  });
-});
-
-describe("Operations input", () => {
-  describe("+", () => {
-    test("Page has addition radio button", async () => {
-      expect(root.querySelector("#radioButtonAddition")).not.toBeNull();
+  describe("Input #1", () => {
+    test("Page has input #1", async () => {
+      expect(root.querySelector("#input1")).not.toBeNull();
+      //console.log(result);
     });
 
-    test("#radioButtonAddition is of type 'radio'", async () => {
-      expect(root.querySelector("#radioButtonAddition")._attrs.type).toBe(
-        "radio",
-      );
+    test("Input #1 has a maxlength=3", async () => {
+      expect(root.querySelector("#input1")._attrs.maxlength).toBe("3");
     });
 
-    test("#radioButtonAddition is in 'operation' group", async () => {
-      expect(root.querySelector("#radioButtonAddition")._attrs.name).toBe(
-        "operation",
-      );
+    test("Input #1 is required", async () => {
+      expect(root.querySelector("#input1")._attrs.required).not.toBeNull();
     });
 
-    test("#radioButtonAddition has a value of 'add'", async () => {
-      expect(root.querySelector("#radioButtonAddition")._attrs.value).toBe(
-        "add",
-      );
+    test("Input #1 has a name", async () => {
+      expect(root.querySelector("#input1")._attrs.name).not.toBeNull();
     });
   });
 
-  describe("-", () => {
-    test("Page has subtraction radio button", async () => {
-      expect(root.querySelector("#radioButtonSubtraction")).not.toBeNull();
+  describe("Input #2", () => {
+    test("Page has input #2", async () => {
+      expect(root.querySelector("#input2")).not.toBeNull();
+      //console.log(result);
     });
 
-    test("#radioButtonSubtraction is of type 'radio'", async () => {
-      expect(root.querySelector("#radioButtonSubtraction")._attrs.type).toBe(
-        "radio",
-      );
+    test("Input #2 has a maxlength=3", async () => {
+      expect(root.querySelector("#input2")._attrs.maxlength).toBe("3");
     });
 
-    test("#radioButtonSubtraction is in 'operation' group", async () => {
-      expect(root.querySelector("#radioButtonSubtraction")._attrs.name).toBe(
-        "operation",
-      );
+    test("Input #2 is required", async () => {
+      expect(root.querySelector("#input2")._attrs.required).not.toBeNull();
     });
 
-    test("#radioButtonSubtraction has a value of 'sub'", async () => {
-      const result = await request(app).get("/");
-      const root = parse(result.text);
-
-      expect(root.querySelector("#radioButtonSubtraction")._attrs.value).toBe(
-        "sub",
-      );
+    test("Input #2 has a name", async () => {
+      expect(root.querySelector("#input2")._attrs.name).not.toBeNull();
     });
   });
 
-  describe("×", () => {
-    test("Page has multiplication radio button", async () => {
-      expect(root.querySelector("#radioButtonMultiplication")).not.toBeNull();
+  describe("Operations input", () => {
+    describe("+", () => {
+      test("Page has addition radio button", async () => {
+        expect(root.querySelector("#radioButtonAddition")).not.toBeNull();
+      });
+
+      test("#radioButtonAddition is of type 'radio'", async () => {
+        expect(root.querySelector("#radioButtonAddition")._attrs.type).toBe(
+          "radio",
+        );
+      });
+
+      test("#radioButtonAddition is in 'operation' group", async () => {
+        expect(root.querySelector("#radioButtonAddition")._attrs.name).toBe(
+          "operation",
+        );
+      });
+
+      test("#radioButtonAddition has a value of 'add'", async () => {
+        expect(root.querySelector("#radioButtonAddition")._attrs.value).toBe(
+          "add",
+        );
+      });
     });
 
-    test("#radioButtonMultiplication is of type 'radio'", async () => {
-      expect(root.querySelector("#radioButtonMultiplication")._attrs.type).toBe(
-        "radio",
-      );
+    describe("-", () => {
+      test("Page has subtraction radio button", async () => {
+        expect(root.querySelector("#radioButtonSubtraction")).not.toBeNull();
+      });
+
+      test("#radioButtonSubtraction is of type 'radio'", async () => {
+        expect(root.querySelector("#radioButtonSubtraction")._attrs.type).toBe(
+          "radio",
+        );
+      });
+
+      test("#radioButtonSubtraction is in 'operation' group", async () => {
+        expect(root.querySelector("#radioButtonSubtraction")._attrs.name).toBe(
+          "operation",
+        );
+      });
+
+      test("#radioButtonSubtraction has a value of 'sub'", async () => {
+        const result = await request(app).get("/");
+        const root = parse(result.text);
+
+        expect(root.querySelector("#radioButtonSubtraction")._attrs.value).toBe(
+          "sub",
+        );
+      });
     });
 
-    test("#radioButtonMultiplication is in 'operation' group", async () => {
-      expect(root.querySelector("#radioButtonMultiplication")._attrs.name).toBe(
-        "operation",
-      );
+    describe("×", () => {
+      test("Page has multiplication radio button", async () => {
+        expect(root.querySelector("#radioButtonMultiplication")).not.toBeNull();
+      });
+
+      test("#radioButtonMultiplication is of type 'radio'", async () => {
+        expect(
+          root.querySelector("#radioButtonMultiplication")._attrs.type,
+        ).toBe("radio");
+      });
+
+      test("#radioButtonMultiplication is in 'operation' group", async () => {
+        expect(
+          root.querySelector("#radioButtonMultiplication")._attrs.name,
+        ).toBe("operation");
+      });
+
+      test("#radioButtonMultiplication has a value of 'mul'", async () => {
+        expect(
+          root.querySelector("#radioButtonMultiplication")._attrs.value,
+        ).toBe("mul");
+      });
     });
 
-    test("#radioButtonMultiplication has a value of 'mul'", async () => {
-      expect(
-        root.querySelector("#radioButtonMultiplication")._attrs.value,
-      ).toBe("mul");
+    describe("÷", () => {
+      test("Page has division radio button", async () => {
+        expect(root.querySelector("#radioButtonDivision")).not.toBeNull();
+      });
+
+      test("#radioButtonDivision is of type 'radio'", async () => {
+        expect(root.querySelector("#radioButtonDivision")._attrs.type).toBe(
+          "radio",
+        );
+      });
+
+      test("#radioButtonDivision is in 'operation' group", async () => {
+        expect(root.querySelector("#radioButtonDivision")._attrs.name).toBe(
+          "operation",
+        );
+      });
+
+      test("#radioButtonDivision has a value of 'div'", async () => {
+        expect(root.querySelector("#radioButtonDivision")._attrs.value).toBe(
+          "div",
+        );
+      });
     });
   });
 
-  describe("÷", () => {
-    test("Page has division radio button", async () => {
-      expect(root.querySelector("#radioButtonDivision")).not.toBeNull();
+  describe("Form", () => {
+    test("Form exists", async () => {
+      expect(root.querySelector("#calculatorForm")).not.toBeNull();
     });
 
-    test("#radioButtonDivision is of type 'radio'", async () => {
-      expect(root.querySelector("#radioButtonDivision")._attrs.type).toBe(
-        "radio",
-      );
+    test("Has submit button", async () => {
+      expect(root.querySelector("#submitButton")).not.toBeNull();
     });
-
-    test("#radioButtonDivision is in 'operation' group", async () => {
-      expect(root.querySelector("#radioButtonDivision")._attrs.name).toBe(
-        "operation",
-      );
-    });
-
-    test("#radioButtonDivision has a value of 'div'", async () => {
-      expect(root.querySelector("#radioButtonDivision")._attrs.value).toBe(
-        "div",
-      );
-    });
-  });
-});
-
-describe("Form", () => {
-  test("Form exists", async () => {
-    expect(root.querySelector("#calculatorForm")).not.toBeNull();
-  });
-
-  test("Has submit button", async () => {
-    expect(root.querySelector("#submitButton")).not.toBeNull();
   });
 });

@@ -3,31 +3,157 @@
     <head>
         <title>Calculator App</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            * {font-family: monospace;}
+        </style>
     </head>
     <body>
         <form id="calculatorForm" method="GET" action="#" class="m-3">
-            <input id="input1" maxlength="3" required name="hex1" /> <br/>
-            <input id="input2" maxlength="3" required name="hex2" class="mt-2"/> <br/>
+            <input id="input1" maxlength="3" required name="hex1" value="" placeholder="VALUE 1"/> <br/>
+            <input id="input2" maxlength="3" required name="hex2" class="mt-2" value="" placeholder="VALUE 2"/> <br/>
+            <input id="result" class="mt-2" value="<%= response %>" placeholder="RESULT" readOnly/> <br/>
 
             <div class="mt-2">
-                <label class="radio-inline mr-2">
-                    <input type="radio" id="radioButtonAddition" name="operation" value="add"> +
-                </label>
-                <label class="radio-inline mr-2">
-                    <input type="radio" id="radioButtonSubtraction" name="operation" value="sub"> -
-                </label>
-                <label class="radio-inline mr-2">
-                    <input type="radio" id="radioButtonMultiplication" name="operation" value="mul"> ×
-                </label>
-                <label class="radio-inline mr-2">
-                    <input type="radio" id="radioButtonDivision" name="operation" value="div"> ÷
+                 <label class="radio-inline mr-2">
+                    <input type="radio" id="nullRadio" name="operation" value="" autofocus="true" checked disabled>
                 </label>
             </div>
 
-            <button type="submit" id="submitButton" class="btn btn-default">Submit</button>
+            <div class="container mt-2 w-25 float-left">
+                <div class="row mb-1">
+                    <div class="col">
+                        <label class="radio-inline mr-2">
+                            <input type="radio" id="radioButtonAddition" name="operation" value="add" onclick="startNewInput()" > +
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="radio-inline mr-2">
+                            <input type="radio" id="radioButtonSubtraction" name="operation" value="sub" onclick="startNewInput()" > -
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="radio-inline mr-2">
+                            <input type="radio" id="radioButtonMultiplication" name="operation" value="mul" onclick="startNewInput()" > ×
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="radio-inline mr-2">
+                            <input type="radio" id="radioButtonDivision" name="operation" value="div" onclick="startNewInput()" > ÷
+                        </label>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <button id="one" type="button" class="btn btn-light w-100" onclick="inputAdded(1)">1</button>
+                    </div>
+                    <div class="col">
+                        <button id="two" type="button" class="btn btn-light w-100" onclick="inputAdded(2)">2</button>
+                    </div>
+                    <div class="col">
+                        <button id="three" type="button" class="btn btn-light w-100" onclick="inputAdded(3)">3</button>
+                    </div>
+                    <div class="col">
+                        <button id="four" type="button" class="btn btn-light w-100" onclick="inputAdded(4)">4</button>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <button id="five" type="button" class="btn btn-light w-100" onclick="inputAdded(5)">5</button>
+                    </div>
+                    <div class="col">
+                        <button id="six" type="button" class="btn btn-light w-100" onclick="inputAdded(6)">6</button>
+                    </div>
+                    <div class="col">
+                        <button id="seven" type="button" class="btn btn-light w-100" onclick="inputAdded(7)">7</button>
+                    </div>
+                    <div class="col">
+                        <button id="eight" type="button" class="btn btn-light w-100" onclick="inputAdded(8)">8</button>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <button id="nine" type="button" class="btn btn-light w-100" onclick="inputAdded(9)">9</button>
+                    </div>
+                    <div class="col">
+                        <button id="zero" type="button" class="btn btn-light w-100" onclick="inputAdded(0)">0</button>
+                    </div>
+                     <div class="col">
+                        <button id="A" type="button" class="btn btn-light w-100" onclick="inputAdded('A')">A</button>
+                    </div>
+                    <div class="col">
+                        <button id="B" type="button" class="btn btn-light w-100" onclick="inputAdded('B')">B</button>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <button id="C" type="button" class="btn btn-light w-100" onclick="inputAdded('C')">C</button>
+                    </div>
+                    <div class="col">
+                        <button id="D" type="button" class="btn btn-light w-100" onclick="inputAdded('D')">D</button>
+                    </div>
+                    <div class="col">
+                        <button id="E" type="button" class="btn btn-light w-100" onclick="inputAdded('E')">E</button>
+                    </div>
+                    <div class="col">
+                        <button id="F" type="button" class="btn btn-light w-100" onclick="inputAdded('F')">F</button>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <button id="cls" type="button" class="btn btn-light w-100" onclick="clearAll()">cls</button>
+                    </div>
+                    <div class="col">
+                        <button id="back" type="button" class="btn btn-light w-100" onclick="backspace()">&#9003;</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit" id="submitButton" class="btn btn-primary w-100" >=</button>
+                    </div>
+                    <div class="col">
 
-            <p id="result"><%= response %></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <p id="result"></p>
 
         </form>
+        <script>
+            var id = "input1";
+            document.getElementById('nullRadio').style.display = 'none';
+
+            startNewInput = () => {
+             document.getElementById(id).setAttribute('enabled', false);
+             id = "input2";
+            }
+
+            inputAdded = (number) => {
+                if (document.getElementById(id).getAttribute('value').length < 3)
+                    document.getElementById(id).setAttribute('value',`${document.getElementById(id).getAttribute('value')}${number}`);
+            }
+
+            backspace = () => {
+                var l = document.getElementById(id).getAttribute('value');
+                var lb = "";
+                if (l.length > 0)
+                    lb = l.substring(0, l.length-1);
+
+                document.getElementById(id).setAttribute('value',`${lb}`);
+            }
+
+            clearAll = () => {
+                document.getElementById('input1').setAttribute('value', "");
+                document.getElementById('input2').setAttribute('value', "");
+                document.getElementById('result').setAttribute('value', "");
+
+                document.getElementById('nullRadio').checked = true;
+
+                document.getElementById('radioButtonAddition').checked = false;
+                document.getElementById('radioButtonSubtraction').checked = false;
+                document.getElementById('radioButtonMultiplication').checked = false;
+                document.getElementById('radioButtonDivision').checked = false;
+
+            }
+        </script>
     </body>
 </html>
