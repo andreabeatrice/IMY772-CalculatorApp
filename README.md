@@ -24,3 +24,9 @@ The calculator application should be able to perform basic arithmetic functions 
   - [x] Needs to return some form of ERROR message if it is
 - [x] Needs to return a hexadecimal value of 6 digits or less to the client
 - [x] Needs to display the returned value on the client side
+
+## GUI and Testing
+- [ ] Ensure that your GUI has individual buttons for every number character and operation.
+- [ ] Take into consideration additional functions that would aid in the usability of your calculator (clear, equal, etc.).
+
+> The idea is that users can use the application without keyboard input and can be easily ported to mobile devices. The calculator app on most phones are good examples.
