@@ -105,42 +105,42 @@ describe("Keypad", () => {
       expect(root.querySelector("#A")).not.toBeNull();
       expect(root.querySelector("#A")._attrs.type).toBe("button");
       expect(root.querySelector("#A").childNodes[0]._rawText).toBe("A");
-      expect(root.querySelector("#A")._attrs.onclick).toBe("inputAdded(A)");
+      expect(root.querySelector("#A")._attrs.onclick).toBe("inputAdded('A')");
     });
 
     test("B button", async () => {
       expect(root.querySelector("#B")).not.toBeNull();
       expect(root.querySelector("#B")._attrs.type).toBe("button");
       expect(root.querySelector("#B").childNodes[0]._rawText).toBe("B");
-      expect(root.querySelector("#B")._attrs.onclick).toBe("inputAdded(B)");
+      expect(root.querySelector("#B")._attrs.onclick).toBe("inputAdded('B')");
     });
 
     test("C button", async () => {
       expect(root.querySelector("#C")).not.toBeNull();
       expect(root.querySelector("#C")._attrs.type).toBe("button");
       expect(root.querySelector("#C").childNodes[0]._rawText).toBe("C");
-      expect(root.querySelector("#C")._attrs.onclick).toBe("inputAdded(C)");
+      expect(root.querySelector("#C")._attrs.onclick).toBe("inputAdded('C')");
     });
 
     test("D button", async () => {
       expect(root.querySelector("#D")).not.toBeNull();
       expect(root.querySelector("#D")._attrs.type).toBe("button");
       expect(root.querySelector("#D").childNodes[0]._rawText).toBe("D");
-      expect(root.querySelector("#D")._attrs.onclick).toBe("inputAdded(D)");
+      expect(root.querySelector("#D")._attrs.onclick).toBe("inputAdded('D')");
     });
 
     test("E button", async () => {
       expect(root.querySelector("#E")).not.toBeNull();
       expect(root.querySelector("#E")._attrs.type).toBe("button");
       expect(root.querySelector("#E").childNodes[0]._rawText).toBe("E");
-      expect(root.querySelector("#E")._attrs.onclick).toBe("inputAdded(E)");
+      expect(root.querySelector("#E")._attrs.onclick).toBe("inputAdded('E')");
     });
 
     test("F button", async () => {
       expect(root.querySelector("#F")).not.toBeNull();
       expect(root.querySelector("#F")._attrs.type).toBe("button");
       expect(root.querySelector("#F").childNodes[0]._rawText).toBe("F");
-      expect(root.querySelector("#F")._attrs.onclick).toBe("inputAdded(F)");
+      expect(root.querySelector("#F")._attrs.onclick).toBe("inputAdded('F')");
     });
 
     test("cls button", async () => {
@@ -152,9 +152,11 @@ describe("Keypad", () => {
 
     test("backspace button", async () => {
       expect(root.querySelector("#back")).not.toBeNull();
-      expect(root.querySelector("#cls")._attrs.type).toBe("button");
-      expect(root.querySelector("#cls").childNodes[0]._rawText).toBe("&#9003;");
-      expect(root.querySelector("#cls")._attrs.onclick).toBe("backspace()");
+      expect(root.querySelector("#back")._attrs.type).toBe("button");
+      expect(root.querySelector("#back").childNodes[0]._rawText).toBe(
+        "&#9003;",
+      );
+      expect(root.querySelector("#back")._attrs.onclick).toBe("backspace()");
     });
   });
 });
