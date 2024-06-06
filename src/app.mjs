@@ -1,10 +1,10 @@
 //Load express module
-import express from "express"; //IS FOR RUNNING
-//const express = require("express"); //IS FOR JEST
+//import express from "express"; //IS FOR RUNNING
+const express = require("express"); //IS FOR JEST
 const app = express();
 
-//const Calculator = require("./calculator.mjs").Calculator; //IS FOR JEST
-import { Calculator } from "./calculator.mjs"; //IS FOR RUNNING
+const Calculator = require("./calculator.mjs").Calculator; //IS FOR JEST
+//import { Calculator } from "./calculator.mjs"; //IS FOR RUNNING
 
 app.set("view engine", "ejs");
 
@@ -50,11 +50,11 @@ app.get("/", (req, res) => {
 });
 
 //IS FOR RUNNING
-export const server = app.listen(4000, () => {
-  console.log("App listening on port 4000!");
-});
+// export const server = app.listen(4000, () => {
+//   console.log("App listening on port 4000!");
+// });
 
 //IS FOR JEST
-// module.exports = {
-//   app: app.listen(4000, () => {}),
-// };
+module.exports = {
+  app: app.listen(4000, () => {}),
+};

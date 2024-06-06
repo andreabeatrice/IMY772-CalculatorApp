@@ -1,5 +1,6 @@
 # IMY772-Workshop
 
+Explanation Video: https://drive.google.com/file/d/1Uew0fJe2Tf497wu346daejk_IhbNqAQ-/view?usp=drive_link
 The calculator application should be able to perform basic arithmetic functions (addition, subtraction, multiplication and division) on a set of hexadecimal numbers.
 
 ## Functional Requirements
